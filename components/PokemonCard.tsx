@@ -47,12 +47,12 @@ export default function PokemonCard({ name, image, hp, moves, weaknesses, type }
         </View>
       </View>
 
-      <View>
-        <Text>Moves: {moves.join(', ')}</Text>
+      <View style={styles.movesContainer}>
+        <Text style={styles.movesText}>Moves: {moves.join(', ')}</Text>
       </View>
 
-      <View>
-        <Text>Weakness: {weaknesses.join(', ')}</Text>
+      <View style={styles.weaknessContainer}>
+        <Text style={styles.weaknessText}>Weakness: {weaknesses.join(', ')}</Text>
       </View>
     </View>
   );
@@ -114,6 +114,20 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   typeText: {
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  movesContainer: {
+    marginBottom: 12,
+  },
+  movesText: {
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  weaknessContainer: {
+    marginBottom: 8,
+  },
+  weaknessText: {
     fontSize: 22,
     fontWeight: 'bold',
   },
