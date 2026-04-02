@@ -1,9 +1,30 @@
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Image, ImageSourcePropType, Platform, StyleSheet, Text, View } from 'react-native';
 
-export default function PokemonCard() {
+type TCard = {
+  name: string;
+  image: ImageSourcePropType;
+  hp: number;
+  moves: string[];
+  weaknesses: string[];
+};
+
+export default function PokemonCard({ name, image, hp, moves, weaknesses }: TCard) {
   return (
     <View style={styles.card}>
-      <Text>PokemonCard</Text>
+      <View>
+        <Text>{name}</Text>
+        <Text>{hp}</Text>
+      </View>
+
+      <Image source={image} accessibilityLabel={`${name} Pokemon`} resizeMode="contain" />
+
+      <View>
+        <Text>Moves: {moves.join(', ')}</Text>
+      </View>
+
+      <View>
+        <Text>Weakness: {weaknesses.join(', ')}</Text>
+      </View>
     </View>
   );
 }
