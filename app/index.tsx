@@ -1,5 +1,6 @@
 import PokemonCard from '@/components/PokemonCard';
-import { Platform, SafeAreaView, StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function Index() {
   const charmanderData = {
@@ -12,9 +13,9 @@ export default function Index() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaProvider style={styles.container}>
       <PokemonCard {...charmanderData} />
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
