@@ -11,12 +11,17 @@ type TCard = {
 export default function PokemonCard({ name, image, hp, moves, weaknesses }: TCard) {
   return (
     <View style={styles.card}>
-      <View>
-        <Text>{name}</Text>
-        <Text>{hp}</Text>
+      <View style={styles.nameContainer}>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.hp}>❤️HP: {hp}</Text>
       </View>
 
-      <Image source={image} accessibilityLabel={`${name} Pokemon`} resizeMode="contain" />
+      <Image
+        style={styles.image}
+        source={image}
+        accessibilityLabel={`${name} Pokemon`}
+        resizeMode="contain"
+      />
 
       <View>
         <Text>Moves: {moves.join(', ')}</Text>
@@ -47,5 +52,23 @@ const styles = StyleSheet.create({
         elevation: 5,
       },
     }),
+  },
+  nameContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    marginBottom: 32,
+  },
+  name: {
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
+  hp: {
+    fontSize: 22,
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    marginBottom: 16,
   },
 });
